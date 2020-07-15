@@ -6,4 +6,5 @@
     <string name="edit_password">Password</string>
     <string name="login_title">Login</string>
     <string name="signup_title">Sign Up</string>
+    <string name="role_select_title">Role Selection</string>
 </resources>

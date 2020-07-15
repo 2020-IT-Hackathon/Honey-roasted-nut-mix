@@ -35,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
+        findViewById(R.id.buttonLogin).setOnClickListener(this);
     }
 
     private void registerUser() {
@@ -82,6 +83,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(getApplicationContext(),
                                     "Registration Successful!",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignUpActivity.this, RoleSelectActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(),
                                     "Error: " + task.getException().getMessage(),
@@ -99,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 registerUser();
                 break;
             case R.id.buttonLogin:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 break;
         }
     }
