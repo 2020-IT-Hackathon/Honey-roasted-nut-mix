@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "40603445084",
+    "firebase_url": "https://personal-vehicle-delivery.firebaseio.com",
+    "project_id": "personal-vehicle-delivery",
+    "storage_bucket": "personal-vehicle-delivery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40603445084:android:07af296aec899050484399",
+        "android_client_info": {
+          "package_name": "com.example.personalvehicledelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40603445084-dorqs6v86ci15f415medn3s8vd2gupfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcjRL9NhEvOfbWADTPXMQOMSfYwgWGUS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40603445084-dorqs6v86ci15f415medn3s8vd2gupfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
