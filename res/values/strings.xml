@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Personal Vehicle Delivery</string>
+    <string name="edit_email">Email Address</string>
+    <string name="button_login">Login</string>
+    <string name="button_signup">Sign Up</string>
+    <string name="edit_password">Password</string>
+    <string name="login_title">Login</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="role_select_title">Role Selection</string>
+</resources>
