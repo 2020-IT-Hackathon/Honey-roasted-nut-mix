@@ -7,4 +7,11 @@
     <string name="login_title">Login</string>
     <string name="signup_title">Sign Up</string>
     <string name="role_select_title">Role Selection</string>
+    <string name="button_submit">Submit</string>
+    <string name="radio_customer">Customer</string>
+    <string name="radio_driver">Driver</string>
+    <string name="radio_bo">Business Owner</string>
+    <string name="business_info_title">Business Info</string>
+    <string name="driver_info_title">Driver Info</string>
+    <string name="customer_info_title">Customer Info</string>
 </resources>

@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,12 +25,21 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     EditText editTextEmail, editTextPassword;
     private FirebaseAuth mAuth;
 
+    // DB and DB reference
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
+
+    private static final String USERS = "users";
+    private User userInstance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference(USERS);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -40,8 +52,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private void registerUser() {
         // Get text values in two input fields
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String password = editTextPassword.getText().toString().trim();
 
         // Check if email is empty
         if (email.isEmpty()) {
@@ -80,9 +92,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
+                            finish();
+                            String uid = task.getResult().getUser().getUid();
+                            mDatabase.child(uid).setValue(userInstance);
                             Toast.makeText(getApplicationContext(),
                                     "Registration Successful!",
                                     Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(SignUpActivity.this, RoleSelectActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
@@ -95,14 +111,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 });
     }
 
-
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.buttonSignUp:
+                final String email = editTextEmail.getText().toString().trim();
+                final String password = editTextPassword.getText().toString().trim();
+                userInstance = new User(email, password);
                 registerUser();
                 break;
             case R.id.buttonLogin:
+                finish();
                 startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 break;
         }
