@@ -80,11 +80,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(),
-                                    "User Registered!",
+                                    "Registration Successful!",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(),
-                                    "Registration Failed: " + task.getException().getMessage(),
+                                    "Error: " + task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
