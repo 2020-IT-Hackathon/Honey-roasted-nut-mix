@@ -102,10 +102,4 @@
         <item> Wisconsin</item>
         <item> Wyoming</item>
     </array>
-    <string name="edit_employee_id">Employee ID</string>
-    <string name="edit_restaurant_name">Restaurant Name</string>
-    <string name="edit_business_phone">Business Phone</string>
-    <string name="edit_street_address">Street Address</string>
-    <string name="edit_city">City</string>
-    <string name="business_main_title">Business Homepage</string>
 </resources>
