@@ -52,6 +52,10 @@
         <item>Spicy Chicken Sandwich</item>
         <item>Grilled Chicken Sandwich</item>
     </string-array>
+    <string-array name="popeyes_menu">
+        <item>Signature Chicken</item>
+        <item>Spicy Chicken Sandwich</item>
+    </string-array>
 
   <array name="States">
         <item> Alabama</item>
