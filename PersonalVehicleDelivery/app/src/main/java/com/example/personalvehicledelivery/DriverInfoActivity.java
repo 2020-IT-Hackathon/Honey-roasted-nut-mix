@@ -35,7 +35,7 @@ public class DriverInfoActivity extends AppCompatActivity {
 
         editTextFullName = findViewById(R.id.editTextFullName);
         editTextDate = findViewById(R.id.editTextDate);
-        editTextZip = findViewById(R.id.editTextZip);
+        editTextZip = findViewById(R.id.editZip);
         editTextDLNumber = findViewById(R.id.editTextDLNumber);
         editTextPlate = findViewById(R.id.editTextPlate);
         editTextInsuranceNumber = findViewById(R.id.editTextInsuranceNumber);

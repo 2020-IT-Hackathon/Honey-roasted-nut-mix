@@ -117,10 +117,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     };
                     ref.addListenerForSingleValueEvent(valueEventListener);
-
-//                    Intent intent = new Intent(MainActivity.this, RoleSelectActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             task.getException().getMessage(),
@@ -134,8 +130,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(this, RoleSelectActivity.class));
+            String uid  = mAuth.getCurrentUser().getUid();
+            DatabaseReference ref = mDatabase.child(uid);
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String userType = snapshot.child("user_type").getValue().toString();
+                    if (userType.equals("Driver")) {
+                        startActivity(new Intent(MainActivity.this, DriverMainActivity.class));
+                    } else if (userType.equals("Customer")) {
+                        startActivity(new Intent(MainActivity.this, CustomerMainActivity.class));
+                    } else if (userType.equals("Business Owner")) {
+                        startActivity(new Intent(MainActivity.this, BusinessMainActivity.class));
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            };
+            ref.addListenerForSingleValueEvent(valueEventListener);
         }
     }
 

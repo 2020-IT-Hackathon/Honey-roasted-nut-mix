@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="@string/business_info_title"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,22 +23,11 @@
         android:id="@+id/editName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
+        android:hint="@string/edit_fullname"
         android:inputType="textPersonName"
-        android:text="Enter Full Name"
-        app:layout_constraintBottom_toTopOf="@+id/editEmployeeID"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.634" />
-
-    <TextView
-        android:id="@+id/textViewEnterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="148dp"
-        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,100 +35,85 @@
         android:id="@+id/editRestaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="180dp"
         android:ems="10"
+        android:hint="@string/edit_restaurant_name"
         android:inputType="textPersonName"
-        android:text="Enter Restaurant Name"
-        app:layout_constraintBottom_toTopOf="@+id/editBusinessPhone"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editStreetAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="292dp"
         android:ems="10"
+        android:hint="@string/edit_street_address"
         android:inputType="textPostalAddress"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="455dp" />
-
-    <EditText
-        android:id="@+id/editEmployeeID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter Employee ID"
-        app:layout_constraintBottom_toTopOf="@+id/editRestaurantName"
-        tools:layout_editor_absoluteX="126dp" />
-
-    <TextView
-        android:id="@+id/textViewEnterEmployeeID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Employee ID"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEnterName"
-        tools:layout_editor_absoluteX="17dp" />
-
-    <TextView
-        android:id="@+id/textViewEnterRestaurantName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Restaurant Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="297dp" />
-
-    <TextView
-        android:id="@+id/textViewEnterStreetAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Street Address"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="468dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editBusinessPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
         android:ems="10"
+        android:hint="@string/edit_business_phone"
         android:inputType="phone"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="356dp" />
-
-    <TextView
-        android:id="@+id/textViewEnterBusinessPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Business Phone "
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="375dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerState"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="472dp"
         android:entries="@array/States"
         android:spinnerMode="dropdown"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="528dp" />
-
-    <TextView
-        android:id="@+id/textViewState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="State"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="528dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonAddBusinessInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="516dp"
         android:text="Add Business "
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="605dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editZip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="408dp"
+        android:ems="10"
+        android:hint="@string/edit_zip"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="348dp"
+        android:ems="10"
+        android:hint="@string/edit_city"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
