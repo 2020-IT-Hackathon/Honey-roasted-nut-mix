@@ -54,6 +54,11 @@ public class BusinessMainActivity extends AppCompatActivity {
                             R.array.cfa_menu, android.R.layout.simple_spinner_item);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerMenu.setAdapter(adapter);
+                } else if (businessName.equals("Burger King")) {
+                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BusinessMainActivity.this,
+                            R.array.bk_menu, android.R.layout.simple_spinner_item);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerMenu.setAdapter(adapter);
                 }
             }
 
