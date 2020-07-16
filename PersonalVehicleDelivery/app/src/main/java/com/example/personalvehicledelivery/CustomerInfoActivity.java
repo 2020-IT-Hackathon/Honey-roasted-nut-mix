@@ -35,7 +35,7 @@ public class CustomerInfoActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(USERS);
+        mDatabase = database.getReference();
 
         editTextCustomerName = findViewById(R.id.editTextCustomerName);
         editTextCustomerPhone = findViewById(R.id.editTextCustomerPhone);
@@ -57,12 +57,19 @@ public class CustomerInfoActivity extends AppCompatActivity {
 
 
                 String uid = mAuth.getCurrentUser().getUid();
-                mDatabase.child(uid).child("customer_name").setValue(customerName);
-                mDatabase.child(uid).child("customer_phone").setValue(customerPhone);
-                mDatabase.child(uid).child("customer_address").setValue(customerAddress);
-                mDatabase.child(uid).child("customer_state").setValue(customerState);
-                mDatabase.child(uid).child("customer_city").setValue(customerCity);
-                mDatabase.child(uid).child("customer_zip").setValue(customerZip);
+                mDatabase.child(USERS).child(uid).child("customer_name").setValue(customerName);
+                mDatabase.child(USERS).child(uid).child("customer_phone").setValue(customerPhone);
+                mDatabase.child(USERS).child(uid).child("customer_address").setValue(customerAddress);
+                mDatabase.child(USERS).child(uid).child("customer_state").setValue(customerState);
+                mDatabase.child(USERS).child(uid).child("customer_city").setValue(customerCity);
+                mDatabase.child(USERS).child(uid).child("customer_zip").setValue(customerZip);
+
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                String userEmailKey = userEmail.replace('.', ',');
+                mDatabase.child("customers").child(userEmailKey).child("address").setValue(customerAddress);
+                mDatabase.child("customers").child(userEmailKey).child("city").setValue(customerCity);
+                mDatabase.child("customers").child(userEmailKey).child("state").setValue(customerState);
+                mDatabase.child("customers").child(userEmailKey).child("zip").setValue(customerZip);
 
                 finish();
                 startActivity(new Intent(CustomerInfoActivity.this, CustomerMainActivity.class));

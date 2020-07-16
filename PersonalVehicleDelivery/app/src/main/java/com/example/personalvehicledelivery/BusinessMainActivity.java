@@ -13,8 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,12 +25,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class BusinessMainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
     TextView textViewTitle;
+    EditText editTextEmail;
     Spinner spinnerMenu;
     Button help_btn;
     TextView help_txt;
@@ -46,13 +52,14 @@ public class BusinessMainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(USERS);
+        mDatabase = database.getReference();
 
         String uid = mAuth.getCurrentUser().getUid();
-        DatabaseReference ref = mDatabase.child(uid);
+        DatabaseReference ref = mDatabase.child(USERS).child(uid);
 
         textViewTitle = findViewById(R.id.textViewTitle);
         spinnerMenu = findViewById(R.id.spinnerMenu);
+        editTextEmail = findViewById(R.id.editTextEmail);
 
         help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +96,51 @@ public class BusinessMainActivity extends AppCompatActivity {
             }
         };
         ref.addListenerForSingleValueEvent(valueEventListener);
+
+        Button buttonSubmit = findViewById(R.id.buttonSubmit);
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uid = mAuth.getCurrentUser().getUid();
+                String businessEmail = mAuth.getCurrentUser().getEmail();
+                final String businessEmailKey = businessEmail.replace('.', ',');
+
+                ValueEventListener valueEventListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String businessName = snapshot.child("business owners")
+                                .child(businessEmailKey)
+                                .child("business_name").getValue().toString();
+                        String businessAddress = snapshot.child("business owners")
+                                .child(businessEmailKey)
+                                .child("address").getValue().toString();
+                        String customerEmail = editTextEmail.getText().toString();
+                        String customerEmailKey = customerEmail.replace('.', ',');
+
+                        String customerAddress = snapshot.child("customers")
+                                .child(customerEmailKey)
+                                .child("address").getValue().toString();
+                        String item = spinnerMenu.getSelectedItem().toString();
+
+                        Order order = new Order(customerEmail, customerAddress, item, businessAddress, businessName);
+
+                        Date date = new Date();
+                        long time = date.getTime();
+                        String ts = new Timestamp(time).toString().substring(0, 19);
+
+                        mDatabase.child("orders").child(ts).setValue(order);
+                        Toast.makeText(getApplicationContext(), "Job added!", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                };
+                mDatabase.addListenerForSingleValueEvent(valueEventListener);
+            }
+        });
+
+
         Button buttonLogout = findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override

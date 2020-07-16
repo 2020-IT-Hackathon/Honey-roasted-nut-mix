@@ -31,7 +31,7 @@ public class DriverInfoActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(USERS);
+        mDatabase = database.getReference();
 
         editTextFullName = findViewById(R.id.editTextFullName);
         editTextDate = findViewById(R.id.editTextDate);
@@ -58,16 +58,20 @@ public class DriverInfoActivity extends AppCompatActivity {
                 String vtype = spinner.getSelectedItem().toString();
 
                 String uid = mAuth.getCurrentUser().getUid();
-                mDatabase.child(uid).child("full_name").setValue(fullname);
-                mDatabase.child(uid).child("birth_date").setValue(birthdate);
-                mDatabase.child(uid).child("zip").setValue(zip);
-                mDatabase.child(uid).child("driver_license_number").setValue(dlnumber);
-                mDatabase.child(uid).child("plate_number").setValue(plate);
-                mDatabase.child(uid).child("insurance_number").setValue(insurance);
-                mDatabase.child(uid).child("vehicle_make").setValue(vmake);
-                mDatabase.child(uid).child("vehicle_model").setValue(vmodel);
-                mDatabase.child(uid).child("vehicle_type").setValue(vtype);
-                mDatabase.child(uid).child("available").setValue(1);
+                mDatabase.child(USERS).child(uid).child("full_name").setValue(fullname);
+                mDatabase.child(USERS).child(uid).child("birth_date").setValue(birthdate);
+                mDatabase.child(USERS).child(uid).child("zip").setValue(zip);
+                mDatabase.child(USERS).child(uid).child("driver_license_number").setValue(dlnumber);
+                mDatabase.child(USERS).child(uid).child("plate_number").setValue(plate);
+                mDatabase.child(USERS).child(uid).child("insurance_number").setValue(insurance);
+                mDatabase.child(USERS).child(uid).child("vehicle_make").setValue(vmake);
+                mDatabase.child(USERS).child(uid).child("vehicle_model").setValue(vmodel);
+                mDatabase.child(USERS).child(uid).child("vehicle_type").setValue(vtype);
+                mDatabase.child(USERS).child(uid).child("available").setValue(1);
+
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                String userEmailKey = userEmail.replace('.', ',');
+                mDatabase.child("drivers").child(userEmailKey).child("available").setValue(1);
 
                 finish();
                 startActivity(new Intent(DriverInfoActivity.this, DriverMainActivity.class));
