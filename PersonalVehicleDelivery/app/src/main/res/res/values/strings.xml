@@ -1,0 +1,114 @@
+<resources>
+    <string name="app_name">UPS Go</string>
+    <string name="edit_email">Email Address</string>
+    <string name="button_login">Login</string>
+    <string name="button_signup">Sign Up</string>
+    <string name="edit_password">Password</string>
+    <string name="login_title">Login</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="role_select_title">Role Selection</string>
+    <string name="button_submit">Submit</string>
+    <string name="radio_customer">Customer</string>
+    <string name="radio_driver">Driver</string>
+    <string name="radio_bo">Business Owner</string>
+    <string name="business_info_title">Business Registration</string>
+    <string name="driver_info_title">Driver Registration</string>
+    <string name="customer_info_title">Customer Registration</string>
+    <string name="edit_date_of_birth">Date of Birth (m/d/y)</string>
+    <string name="edit_fullname">Full Name</string>
+    <string name="edit_dlnumber">Driver\'s License Number</string>
+    <string name="edit_insurance">Insurance Number</string>
+    <string name="edit_vehiclemake">Vehicle Make</string>
+    <string name="edit_vehiclemodel">Vehicle Model</string>
+    <string name="edit_zip">Zipcode</string>
+    <string name="edit_plate">Plate Number</string>
+    <string name="edit_business_phone">Business Phone</string>
+    <string name="edit_street_address">Street Address</string>
+    <string name="driver_main_title">Driver Homepage</string>
+    <string name="edit_city">City</string>
+    <string name="pick_item">Pick an item to begin</string>
+    <string name="customer_email">Customer Email:</string>
+    <string name="helpbtn">"?"</string>
+    <string name="helpText">Enter the customers order and press submit to place the delivery order!</string>
+
+    <string name="vehicle_type_prompt">Choose a vehicle type</string>
+    <string-array name="vehicle_types">
+        <item>Sedan</item>
+        <item>Coupe</item>
+        <item>Hatchback</item>
+        <item>Convertible</item>
+        <item>SUV</item>
+        <item>Minivan</item>
+        <item>Van</item>
+        <item>Pickup Truck</item>
+    </string-array>
+    <string name="button_logout">Log Out</string>
+
+    <array name="bk_menu">
+        <item>WHOPPER BBQ</item>
+        <item>WHOPPER with Cheese</item>
+        <item>Bacon Cheeseburger</item>
+        <item>Chicken Nuggets 10</item>
+        <item>French Fries</item>
+    </array>
+    <string-array name="cfa_menu">
+        <item>Chicken Sandwich</item>
+        <item>Spicy Chicken Sandwich</item>
+        <item>Grilled Chicken Sandwich</item>
+    </string-array>
+
+  <array name="States">
+        <item> Alabama</item>
+        <item> Alaska</item>
+        <item> Arizona</item>
+        <item> Arkansas</item>
+        <item> California</item>
+        <item> Colorado</item>
+        <item> Connecticut</item>
+        <item> Delaware</item>
+        <item> Florida</item>
+        <item> Georgia</item>
+        <item> Hawaii</item>
+        <item> Idaho</item>
+        <item> Illinois</item>
+        <item> Indiana</item>
+        <item> Iowa</item>
+        <item> Kansas</item>
+        <item> Kentucky</item>
+        <item> Louisiana</item>
+        <item> Maine</item>
+        <item> Maryland</item>
+        <item> Massachusetts</item>
+        <item> Michigan</item>
+        <item> Minnesota</item>
+        <item> Mississippi</item>
+        <item> Missouri</item>
+        <item> Montana</item>
+        <item> Nebraska</item>
+        <item> Nevada</item>
+        <item> New Hampshire</item>
+        <item> New Jersey</item>
+        <item> New Mexico</item>
+        <item> New York</item>
+        <item> North Carolina</item>
+        <item> North Dakota</item>
+        <item> Ohio</item>
+        <item> Oklahoma</item>
+        <item> Oregon</item>
+        <item> Pennsylvania</item>
+        <item> Rhode Island</item>
+        <item> South Carolina</item>
+        <item> South Dakota</item>
+        <item> Tennessee</item>
+        <item> Texas</item>
+        <item> Utah</item>
+        <item> Vermont</item>
+        <item> Virginia</item>
+        <item> Washington</item>
+        <item> West Virginia</item>
+        <item> Wisconsin</item>
+        <item> Wyoming</item>
+    </array>
+    <string name="edit_restaurant">Restaurant Name</string>
+    <string name="business_main_title">Business Homepage</string>
+</resources>
