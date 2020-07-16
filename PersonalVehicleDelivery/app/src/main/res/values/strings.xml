@@ -26,8 +26,10 @@
     <string name="edit_street_address">Street Address</string>
     <string name="driver_main_title">Driver Homepage</string>
     <string name="edit_city">City</string>
-    <string name="pick_item">Pick an item</string>
+    <string name="pick_item">Pick an item to begin</string>
     <string name="customer_email">Customer Email:</string>
+    <string name="helpbtn">"?"</string>
+    <string name="helpText">Enter the customers order and press submit to place the delivery order!</string>
 
     <string name="vehicle_type_prompt">Choose a vehicle type</string>
     <string-array name="vehicle_types">
@@ -42,13 +44,13 @@
     </string-array>
     <string name="button_logout">Log Out</string>
 
-    <string-array name="bk_menu">
+    <array name="bk_menu">
         <item>WHOPPER BBQ</item>
         <item>WHOPPER with Cheese</item>
         <item>Bacon Cheeseburger</item>
         <item>Chicken Nuggets 10</item>
         <item>French Fries</item>
-    </string-array>
+    </array>
     <string-array name="cfa_menu">
         <item>Chicken Sandwich</item>
         <item>Spicy Chicken Sandwich</item>
