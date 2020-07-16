@@ -11,7 +11,29 @@
     <string name="radio_customer">Customer</string>
     <string name="radio_driver">Driver</string>
     <string name="radio_bo">Business Owner</string>
-    <string name="business_info_title">Business Info</string>
-    <string name="driver_info_title">Driver Info</string>
-    <string name="customer_info_title">Customer Info</string>
+    <string name="business_info_title">Business Registration</string>
+    <string name="driver_info_title">Driver Registration</string>
+    <string name="customer_info_title">Customer Registration</string>
+    <string name="edit_date_of_birth">Date of Birth (m/d/y)</string>
+    <string name="edit_fullname">Full Name</string>
+    <string name="edit_dlnumber">Driver\'s License Number</string>
+    <string name="edit_insurance">Insurance Number</string>
+    <string name="edit_vehiclemake">Vehicle Make</string>
+    <string name="edit_vehiclemodel">Vehicle Model</string>
+    <string name="edit_zip">Zipcode</string>
+    <string name="edit_plate">Plate Number</string>
+    <string name="driver_main_title">Driver Homepage</string>
+
+    <string name="vehicle_type_prompt">Choose a vehicle type</string>
+    <string-array name="vehicle_types">
+        <item>Sedan</item>
+        <item>Coupe</item>
+        <item>Hatchback</item>
+        <item>Convertible</item>
+        <item>SUV</item>
+        <item>Minivan</item>
+        <item>Van</item>
+        <item>Pickup Truck</item>
+    </string-array>
+    <string name="button_logout">Log Out</string>
 </resources>
