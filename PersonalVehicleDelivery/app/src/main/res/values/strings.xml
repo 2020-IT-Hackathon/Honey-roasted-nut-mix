@@ -37,6 +37,19 @@
     </string-array>
     <string name="button_logout">Log Out</string>
 
+    <string-array name="bk_menu">
+        <item>WHOPPER BBQ</item>
+        <item>WHOPPER with Cheese</item>
+        <item>Bacon Cheeseburger</item>
+        <item>Chicken Nuggets 10</item>
+        <item>French Fries</item>
+    </string-array>
+    <string-array name="cfa_menu">
+        <item>Chicken Sandwich</item>
+        <item>Spicy Chicken Sandwich</item>
+        <item>Grilled Chicken Sandwich</item>
+    </string-array>
+
   <array name="States">
         <item> Alabama</item>
         <item> Alaska</item>
