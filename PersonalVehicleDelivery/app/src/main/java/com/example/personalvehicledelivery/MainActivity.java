@@ -15,6 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,12 +27,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar progressBar;
     EditText editTextEmail, editTextPassword;
 
+    // DB and DB reference
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
+
+    private static final String USERS = "users";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference(USERS);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -78,9 +91,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
                     finish();
-                    Intent intent = new Intent(MainActivity.this, RoleSelectActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    String uid = task.getResult().getUser().getUid();
+
+                    DatabaseReference ref = mDatabase.child(uid);
+
+                    ValueEventListener valueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String userType = snapshot.child("user_type").getValue().toString();
+                            if (userType.equals("Driver")) {
+                                finish();
+                                startActivity(new Intent(MainActivity.this, DriverMainActivity.class));
+                            } else if (userType.equals("Customer")) {
+                                finish();
+                                startActivity(new Intent(MainActivity.this, CustomerMainActivity.class));
+                            } else if (userType.equals("Business Owner")) {
+                                finish();
+                                startActivity(new Intent(MainActivity.this, BusinessMainActivity.class));
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    };
+                    ref.addListenerForSingleValueEvent(valueEventListener);
+
+//                    Intent intent = new Intent(MainActivity.this, RoleSelectActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             task.getException().getMessage(),

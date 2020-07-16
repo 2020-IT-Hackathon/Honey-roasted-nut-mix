@@ -1,10 +1,29 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#CBC6C1</item>
+        <item name="colorPrimaryDark">#a49a91</item>
+        <item name="colorAccent">#a49a91</item>
     </style>
 
+    <style name="MyCustomRadioButton" parent="@android:style/TextAppearance">
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#00857A</item>
+        <item name="android:fontFamily">@font/verdanab</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="PressedRadioBTN" parent="@android:style/TextAppearance">
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#FFB500</item>
+        <item name="android:fontFamily">@font/verdanab</item>
+        <item name="android:textSize">14dp</item>
+    </style>
 </resources>
