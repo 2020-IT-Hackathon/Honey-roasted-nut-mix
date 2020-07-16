@@ -67,6 +67,7 @@ public class DriverInfoActivity extends AppCompatActivity {
                 mDatabase.child(uid).child("vehicle_make").setValue(vmake);
                 mDatabase.child(uid).child("vehicle_model").setValue(vmodel);
                 mDatabase.child(uid).child("vehicle_type").setValue(vtype);
+                mDatabase.child(uid).child("available").setValue(1);
 
                 finish();
                 startActivity(new Intent(DriverInfoActivity.this, DriverMainActivity.class));
