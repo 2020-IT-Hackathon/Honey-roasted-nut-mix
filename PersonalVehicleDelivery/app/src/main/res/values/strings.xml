@@ -22,7 +22,10 @@
     <string name="edit_vehiclemodel">Vehicle Model</string>
     <string name="edit_zip">Zipcode</string>
     <string name="edit_plate">Plate Number</string>
+    <string name="edit_business_phone">Business Phone</string>
+    <string name="edit_street_address">Street Address</string>
     <string name="driver_main_title">Driver Homepage</string>
+    <string name="edit_city">City</string>
 
     <string name="vehicle_type_prompt">Choose a vehicle type</string>
     <string-array name="vehicle_types">
@@ -102,4 +105,6 @@
         <item> Wisconsin</item>
         <item> Wyoming</item>
     </array>
+    <string name="edit_restaurant">Restaurant Name</string>
+    <string name="business_main_title">Business Homepage</string>
 </resources>
