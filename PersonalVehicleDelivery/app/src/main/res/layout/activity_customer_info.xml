@@ -16,7 +16,7 @@
         android:ems="10"
         android:fontFamily="@font/verdanai"
         android:hint="Enter Address"
-        android:inputType="date"
+        android:inputType="textPersonName"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:ems="10"
         android:fontFamily="@font/verdanai"
         android:hint="Enter City"
-        android:inputType="date"
+        android:inputType="textPersonName"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,22 +74,38 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/verdanab"
         android:text="@string/customer_info_title"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="111dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextCustomerName"
         android:layout_width="350sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/verdanai"
         android:hint="Enter Name"
-        android:inputType="date"
+        android:inputType="textPersonName"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/verdanab"
+        android:text="Register Customer"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
