@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BusinessInfoActivity"></activity>
+        <activity android:name=".CustomerMainActivity"></activity>
+        <activity android:name=".BusinessMainActivity" />
+        <activity android:name=".DriverMainActivity" />
+        <activity android:name=".BusinessInfoActivity" />
         <activity android:name=".DriverInfoActivity" />
         <activity android:name=".CustomerInfoActivity" />
         <activity android:name=".RoleSelectActivity" />
