@@ -100,7 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String userType = snapshot.child("user_type").getValue().toString();
                             if (userType.equals("Driver")) {
+                                finish();
                                 startActivity(new Intent(MainActivity.this, DriverMainActivity.class));
+                            } else if (userType.equals("Customer")) {
+                                finish();
+                                startActivity(new Intent(MainActivity.this, CustomerMainActivity.class));
+                            } else if (userType.equals("Business Owner")) {
+                                finish();
+                                startActivity(new Intent(MainActivity.this, BusinessMainActivity.class));
                             }
                         }
 
