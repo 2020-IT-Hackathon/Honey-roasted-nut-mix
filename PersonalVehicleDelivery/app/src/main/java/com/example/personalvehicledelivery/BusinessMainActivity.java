@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +25,7 @@ public class BusinessMainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
     TextView textViewTitle;
+    Spinner spinnerMenu;
 
     private static final String USERS = "users";
 
@@ -39,12 +42,19 @@ public class BusinessMainActivity extends AppCompatActivity {
         DatabaseReference ref = mDatabase.child(uid);
 
         textViewTitle = findViewById(R.id.textViewTitle);
+        spinnerMenu = findViewById(R.id.spinnerMenu);
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String businessName = snapshot.child("business_name").getValue().toString();
                 textViewTitle.setText("Welcome, " + businessName);
+                if (businessName.equals("Chick-fil-A")) {
+                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BusinessMainActivity.this,
+                            R.array.cfa_menu, android.R.layout.simple_spinner_item);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerMenu.setAdapter(adapter);
+                }
             }
 
             @Override

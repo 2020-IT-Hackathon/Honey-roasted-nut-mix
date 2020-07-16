@@ -26,6 +26,7 @@
     <string name="edit_street_address">Street Address</string>
     <string name="driver_main_title">Driver Homepage</string>
     <string name="edit_city">City</string>
+    <string name="pick_item">Pick an item</string>
 
     <string name="vehicle_type_prompt">Choose a vehicle type</string>
     <string-array name="vehicle_types">
