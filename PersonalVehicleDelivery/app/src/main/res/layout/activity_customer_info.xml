@@ -6,86 +6,90 @@
     android:layout_height="match_parent"
     tools:context=".CustomerInfoActivity">
 
+    <EditText
+        android:id="@+id/editTextCustomerAddress"
+        android:layout_width="350sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:fontFamily="@font/verdanai"
+        android:hint="Enter Address"
+        android:inputType="date"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerPhone" />
+
+    <EditText
+        android:id="@+id/editTextCustomerCity"
+        android:layout_width="350sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:fontFamily="@font/verdanai"
+        android:hint="Enter City"
+        android:inputType="date"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerAddress" />
+
+    <EditText
+        android:id="@+id/editTextCustomerZip"
+        android:layout_width="350sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="31dp"
+        android:ems="10"
+        android:fontFamily="@font/verdanai"
+        android:hint="Enter Zip"
+        android:inputType="date"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerCity" />
+
+    <EditText
+        android:id="@+id/editTextCustomerPhone"
+        android:layout_width="350sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:fontFamily="@font/verdanai"
+        android:hint="Enter Phone Number"
+        android:inputType="date"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCustomerName" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Customer Registration"
+        android:text="@string/customer_info_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="111dp" />
 
     <EditText
         android:id="@+id/editTextCustomerName"
-        android:layout_width="wrap_content"
+        android:layout_width="350sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter full name "
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="101dp" />
-
-    <Button
-        android:id="@+id/buttonAddCustomer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:text="Submit"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="154dp" />
-
-    <EditText
-        android:id="@+id/editTextCustomerAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter Street Address"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="101dp" />
-
-    <Spinner
-        android:id="@+id/spinnerState"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="425dp"
-        android:entries="@array/States"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <EditText
-        android:id="@+id/editTextCustomerPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="155dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="109dp" />
-
-    <EditText
-        android:id="@+id/editTextCustomerCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter city"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="97dp" />
-
-    <EditText
-        android:id="@+id/editTextCustomerZip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="375dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter zip code"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="97dp" />
-
+        android:fontFamily="@font/verdanai"
+        android:hint="Enter Name"
+        android:inputType="date"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
