@@ -21,8 +21,6 @@ public class BusinessInfoActivity extends AppCompatActivity {
     Spinner spinnerState;
     Button  buttonAddBusinessInfo;
     private FirebaseAuth mAuth;
-
-    // DB and DB reference
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
 
@@ -73,7 +71,6 @@ public class BusinessInfoActivity extends AppCompatActivity {
         });
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
