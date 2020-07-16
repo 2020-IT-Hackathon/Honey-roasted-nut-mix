@@ -1,5 +1,6 @@
 package com.example.personalvehicledelivery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -14,20 +15,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class BusinessInfoActivity extends AppCompatActivity implements View.OnClickListener {
+public class BusinessInfoActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
 
     EditText editName, editRestaurantName, editStreetAddress, editBusinessPhone, editEmployeeID;
     Spinner spinnerState;
     Button  buttonAddBusinessInfo;
-    private FirebaseAuth mAuth;
 
-    // DB and DB reference
-    private FirebaseDatabase database;
-    private DatabaseReference mDatabase;
-
-
-    private static final String businessOwner = "Business Owner";
-    private businessOwner businessOwnerInstance;
+    private static final String USERS = "users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(businessOwner);
+        mDatabase = database.getReference(USERS);
 
         editName = (EditText) findViewById(R.id.editName);
         editRestaurantName = (EditText) findViewById(R.id.editRestaurantName);
@@ -45,7 +43,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         editEmployeeID = (EditText) findViewById(R.id.editEmployeeID);
         spinnerState = (Spinner) findViewById(R.id.spinnerState);
 
-        buttonAddBusinessInfo = (Button) findViewById(R. id.buttonAddBusinessInfo);
+        buttonAddBusinessInfo = (Button) findViewById(R.id.buttonAddBusinessInfo);
 
         buttonAddBusinessInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,16 +71,26 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
+        String uid = mAuth.getCurrentUser().getUid();
+        mDatabase.child(uid).child("Name").setValue(Name);
+        mDatabase.child(uid).child("restaurantName").setValue(restaurantName);
+        mDatabase.child(uid).child("streetAddress").setValue(streetAddress);
+        mDatabase.child(uid).child("businessPhone").setValue(businessPhone);
+        mDatabase.child(uid).child("employeeID").setValue(employeeID);
+        mDatabase.child(uid).child("State").setValue(State);
 
+        finish();
+        startActivity(new Intent(BusinessInfoActivity.this, BusinessMainActivity.class));
 
     }
 
     @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.buttonAddBusinessInfo:
-                break;
-        }
+    protected void onStart() {
+        super.onStart();
 
+        if (mAuth.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 }
