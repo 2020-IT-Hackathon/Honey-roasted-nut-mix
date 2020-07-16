@@ -17,15 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class BusinessInfoActivity extends AppCompatActivity {
 
+    EditText editName, editRestaurantName, editStreetAddress, editBusinessPhone, editEmployeeID, editCity, editZip;
+    Spinner spinnerState;
+    Button  buttonAddBusinessInfo;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
 
-    EditText editName, editRestaurantName, editStreetAddress, editBusinessPhone, editEmployeeID;
-    Spinner spinnerState;
-    Button  buttonAddBusinessInfo;
-
-    private static final String USERS = "users";
+    private static final String USER = "users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,56 +33,44 @@ public class BusinessInfoActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(USERS);
+        mDatabase = database.getReference(USER);
 
-        editName = (EditText) findViewById(R.id.editName);
-        editRestaurantName = (EditText) findViewById(R.id.editRestaurantName);
-        editStreetAddress = (EditText) findViewById(R.id.editStreetAddress);
-        editBusinessPhone = (EditText) findViewById(R.id.editBusinessPhone);
-        editEmployeeID = (EditText) findViewById(R.id.editEmployeeID);
-        spinnerState = (Spinner) findViewById(R.id.spinnerState);
+        editName = findViewById(R.id.editName);
+        editRestaurantName = findViewById(R.id.editRestaurantName);
+        editStreetAddress = findViewById(R.id.editStreetAddress);
+        editCity = findViewById(R.id.editCity);
+        editZip = findViewById(R.id.editZip);
+        editBusinessPhone = findViewById(R.id.editBusinessPhone);
+        spinnerState = findViewById(R.id.spinnerState);
 
-        buttonAddBusinessInfo = (Button) findViewById(R.id.buttonAddBusinessInfo);
+        buttonAddBusinessInfo = findViewById(R. id.buttonAddBusinessInfo);
 
         buttonAddBusinessInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addBusinessOwner();
+                String fullName = editName.getText().toString().trim();
+                String restaurantName = editRestaurantName.getText().toString().trim();
+                String streetAddress = editStreetAddress.getText().toString().trim();
+                String city = editCity.getText().toString().trim();
+                String zip = editZip.getText().toString().trim();
+                String businessPhone = editBusinessPhone.getText().toString().trim();
+                String state = spinnerState.getSelectedItem().toString();
+
+                String uid = mAuth.getCurrentUser().getUid();
+                mDatabase.child(uid).child("full_name").setValue(fullName);
+                mDatabase.child(uid).child("zip").setValue(zip);
+                mDatabase.child(uid).child("business_name").setValue(restaurantName);
+                mDatabase.child(uid).child("street_address").setValue(streetAddress);
+                mDatabase.child(uid).child("city").setValue(city);
+                mDatabase.child(uid).child("business_phone").setValue(businessPhone);
+                mDatabase.child(uid).child("state").setValue(state);
+
+                finish();
+                startActivity(new Intent(BusinessInfoActivity.this, BusinessMainActivity.class));
             }
         });
 
     }
-
-    public void addBusinessOwner(){
-        //Get Business Owner Info
-        String Name          = editName.getText().toString().trim();
-        String restaurantName= editRestaurantName.getText().toString().trim();
-        String streetAddress = editStreetAddress.getText().toString().trim();
-        String businessPhone = editBusinessPhone.getText().toString().trim();
-        String employeeID    = editEmployeeID.getText().toString().trim();
-        String State         = spinnerState.getSelectedItem().toString();
-
-
-        //Phone Number Validation
-        if (!Patterns.PHONE.matcher(businessPhone).matches()){
-            editBusinessPhone.setError("Please enter a valid phone number");
-            editBusinessPhone.requestFocus();
-            return;
-        }
-
-        String uid = mAuth.getCurrentUser().getUid();
-        mDatabase.child(uid).child("Name").setValue(Name);
-        mDatabase.child(uid).child("restaurantName").setValue(restaurantName);
-        mDatabase.child(uid).child("streetAddress").setValue(streetAddress);
-        mDatabase.child(uid).child("businessPhone").setValue(businessPhone);
-        mDatabase.child(uid).child("employeeID").setValue(employeeID);
-        mDatabase.child(uid).child("State").setValue(State);
-
-        finish();
-        startActivity(new Intent(BusinessInfoActivity.this, BusinessMainActivity.class));
-
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
