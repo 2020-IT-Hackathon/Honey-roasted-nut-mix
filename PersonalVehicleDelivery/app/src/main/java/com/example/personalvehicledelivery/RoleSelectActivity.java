@@ -32,7 +32,7 @@ public class RoleSelectActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference(USERS);
+        mDatabase = database.getReference();
 
         radioGroup = findViewById(R.id.radioGroup);
         Button buttonSubmit = findViewById(R.id.buttonSubmit);
@@ -45,8 +45,11 @@ public class RoleSelectActivity extends AppCompatActivity {
                 // Adding user type into database
                 String userType = radioButton.getText().toString().trim();
                 String uid = mAuth.getCurrentUser().getUid();
-                mDatabase.child(uid).child("user_type").setValue(userType);
-
+                String userEmail = mAuth.getCurrentUser().getEmail();
+                String userEmailKey = userEmail.replace('.', ',');
+                mDatabase.child(USERS).child(uid).child("user_type").setValue(userType);
+                mDatabase.child(userType.toLowerCase() + 's').child(userEmailKey).child("uid").setValue(uid);
+                mDatabase.child(userType.toLowerCase() + 's').child(userEmailKey).child("email").setValue(userEmail);
                 if (userType.equals("Customer")) {
                     finish();
                     startActivity(new Intent(RoleSelectActivity.this, CustomerInfoActivity.class));
