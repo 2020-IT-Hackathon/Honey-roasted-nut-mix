@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Personal Vehicle Delivery</string>
+    <string name="app_name">UPS Go</string>
     <string name="edit_email">Email Address</string>
     <string name="button_login">Login</string>
     <string name="button_signup">Sign Up</string>
