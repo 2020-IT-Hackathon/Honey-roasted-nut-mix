@@ -30,6 +30,8 @@
     <string name="customer_email">Customer Email:</string>
     <string name="helpbtn">"?"</string>
     <string name="helpText">Enter the customers order and press submit to place the delivery order!</string>
+    <string name="helpText2">Select one of the three options to register as either a Customer, a Driver, or a Business Owner.</string>
+    <string name="helpText3">Enter a valid email and a 6-digit password to register.</string>
 
     <string name="vehicle_type_prompt">Choose a vehicle type</string>
     <string-array name="vehicle_types">

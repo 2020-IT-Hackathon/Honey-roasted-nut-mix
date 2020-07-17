@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +23,8 @@ public class RoleSelectActivity extends AppCompatActivity {
     // DB and DB reference
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
+    Button help_btn;
+    TextView help_txt;
 
     private static final String USERS = "users";
 
@@ -33,6 +36,16 @@ public class RoleSelectActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         mDatabase = database.getReference();
+        help_btn = (Button)findViewById(R.id.help_button2);
+        help_txt = (TextView)findViewById(R.id.help_text2);
+
+        help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                help_txt.setVisibility((help_txt.getVisibility() == View.VISIBLE)
+                        ? View.GONE : View.VISIBLE);
+            }
+        });
 
         radioGroup = findViewById(R.id.radioGroup);
         Button buttonSubmit = findViewById(R.id.buttonSubmit);

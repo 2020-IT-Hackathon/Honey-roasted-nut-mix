@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +32,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     // DB and DB reference
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
+    Button help_btn;
+    TextView help_txt;
 
     private static final String USERS = "users";
     private User userInstance;
@@ -47,6 +51,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        help_btn = (Button)findViewById(R.id.help_button3);
+        help_txt = (TextView)findViewById(R.id.help_text3);
+        help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                help_txt.setVisibility((help_txt.getVisibility() == View.VISIBLE)
+                        ? View.GONE : View.VISIBLE);
+            }
+        });
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
