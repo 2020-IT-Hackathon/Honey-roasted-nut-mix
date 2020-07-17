@@ -18,11 +18,17 @@
         android:id="@+id/buttonGetDirection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/get_directions" />
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/verdanab"
+        android:text="@string/get_directions"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_logout" />
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/verdanab"
+        android:text="@string/button_logout"
+        android:textColor="#FFFFFF" />
 </LinearLayout>
