@@ -28,6 +28,8 @@
     <string name="edit_city">City</string>
     <string name="pick_item">Pick an item</string>
     <string name="customer_email">Customer Email:</string>
+    <string name="get_directions">Get Directions</string>
+    <string name="api_key">AIzaSyARsNpnQRNR3hmJphz_FOSiMyU33ScK69M</string>
 
     <string name="vehicle_type_prompt">Choose a vehicle type</string>
     <string-array name="vehicle_types">
